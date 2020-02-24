@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <form method="POST">
+        <input name="x" id="x" placeholder="Enter a subject" />
+        <input name="y" id="y" placeholder="Enter a subject" />
+        <input name="operate_list" type="checkbox" value="+">
+        <input name="operate_list" type="checkbox" value="-">
+        <input name="operate_list" type="checkbox" value="*">
+        <input name="operate_list" type="checkbox" value="/">
+        <input name="find value" type="submit" value="find value">
+        {% csrf_token %}
+    </form>
+    <p>the result {{ num }}{{ operate }}{{ num2 }} is :{{ result }}</p>
+</head>
+<body>
+
+</body>
+</html>
