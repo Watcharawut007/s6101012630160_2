@@ -4,14 +4,15 @@
     <form method="POST">
         <input name="x" id="x" placeholder="Enter a subject" />
         <input name="y" id="y" placeholder="Enter a subject" />
-        <input name="operate_list" type="checkbox" value="+">
-        <input name="operate_list" type="checkbox" value="-">
-        <input name="operate_list" type="checkbox" value="*">
-        <input name="operate_list" type="checkbox" value="/">
-        <input name="find value" type="submit" value="find value">
+        <li><input name="operate_list" type="checkbox" value="+"><label>+</label></li>
+        <li><input name="operate_list" type="checkbox" value="-"><label>-</label></li>
+        <li><input name="operate_list" type="checkbox" value="*"><label>*</label></li>
+        <li><input name="operate_list" type="checkbox" value="/"><label>/</label></li>
+        <li><input name="find value" type="submit" value="find value"></li>
+
         {% csrf_token %}
     </form>
-    <p>the result {{ num }}{{ operate }}{{ num2 }} is :{{ result }}</p>
+    <p>the result {{ x }} {{ operate }} {{ y }} is :{{ result }}</p>
 </head>
 <body>
 

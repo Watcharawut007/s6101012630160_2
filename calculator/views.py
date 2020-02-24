@@ -9,17 +9,16 @@ def home(request):
         if operate == "+":
             result = int(num) + int(num2)
 
-            return render(request,"calculator/home.html",{"result":result,"operate":operate})
+            return render(request,"calculator/home.html",{"result":result,"operate":operate,"x":num,"y":num2})
         elif operate == "-":
             result = int(num) - int(num2)
 
-            return render(request, "calculator/home.html", {"result": result, "operate": operate})
+            return render(request, "calculator/home.html", {"result": result, "operate": operate,"x":num,"y":num2})
         elif operate == "*":
             result = int(num) * int(num2)
-            return render(request,"calculator/home.html",{"result":result,"operate":operate})
+            return render(request,"calculator/home.html",{"result":result,"operate":operate,"x":num,"y":num2})
         elif operate == "/":
             result = int(num) / int(num2)
-            return render(request,"calculator/home.html",{"result":result,"operate":operate})
-        return render(request, "calculator/home.html", {"operate": operate,"x":num,"y":num2})
+            return render(request,"calculator/home.html",{"result":result,"operate":operate,"x":num,"y":num2})
 
     return render(request,"calculator/home.html")
