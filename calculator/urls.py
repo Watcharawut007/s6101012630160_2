@@ -9,4 +9,5 @@ from django.conf.urls import include
 app_name = 'calculate'
 urlpatterns = [
     path('', views.home, name='home'),
+    path('about',views.about,name='about'),
 ]

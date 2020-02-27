@@ -39,5 +39,7 @@ def home(request):
             history.delete()
         return render(request,"calculator/home.html",{"history":Calculate.objects.all()})
     return render(request,"calculator/home.html",{"history":string_list})
-
-
+def about(request):
+    name = "Watcharawut Pornsawat"
+    code = 6101012630160
+    return render(request,"calculator/about.html",{"name":name,"Code":code})
