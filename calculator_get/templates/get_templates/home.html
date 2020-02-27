@@ -2,15 +2,16 @@
 <html lang="en">
 <h1>Calculator</h1>
 <head>
+    {% if check %}
     <form method="GET">
-        <input name="x" id="x" placeholder="Enter a subject" />
-        <input name="y" id="y" placeholder="Enter a subject" />
+        <input name="x" id="x1" placeholder="Enter a subject" value = {{ last_result.result }} />
+        <input name="y" id="y1" placeholder="Enter a subject" />
         <li><input name="operate_list" type="checkbox" value="+"><label>+</label></li>
         <li><input name="operate_list" type="checkbox" value="-"><label>-</label></li>
         <li><input name="operate_list" type="checkbox" value="*"><label>*</label></li>
         <li><input name="operate_list" type="checkbox" value="/"><label>/</label></li>
         <li><input name="find value" type="submit" value="result"></li>
-
+         <li><input name="continue"type="submit" value="continue"></li>
         {% csrf_token %}
     </form>
        {% for key,value in result_list.items %}
@@ -27,6 +28,33 @@
     </form>
     <a href="{% url 'calculate:home' %}">go to post method</a>
     <a href="{% url 'calculate:about' %}">go to About</a>
+    {% else %}
+    <form method="GET">
+        <input name="x" id="x" placeholder="Enter a subject" />
+        <input name="y" id="y" placeholder="Enter a subject" />
+        <li><input name="operate_list" type="checkbox" value="+"><label>+</label></li>
+        <li><input name="operate_list" type="checkbox" value="-"><label>-</label></li>
+        <li><input name="operate_list" type="checkbox" value="*"><label>*</label></li>
+        <li><input name="operate_list" type="checkbox" value="/"><label>/</label></li>
+        <li><input name="find value" type="submit" value="result"></li>
+         <li><input name="continue"type="submit" value="continue"></li>
+        {% csrf_token %}
+    </form>
+       {% for key,value in result_list.items %}
+        <p>the result {{ x }} {{ key }} {{ y }} is :{{ value }}</p></td>
+    {% endfor %}
+
+    <h1 name = 'history'>History</h1>
+    {% for history in history %}
+        <p>the result {{ history }}</p></td>
+    {% endfor %}
+    <form method="GET">
+        <input name="clear_history" type="submit" value="Clear History">
+        {% csrf_token %}
+    </form>
+    <a href="{% url 'calculate:home' %}">go to post method</a>
+    <a href="{% url 'calculate:about' %}">go to About</a>
+    {% endif %}
 </head>
 <body>
 

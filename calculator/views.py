@@ -19,6 +19,8 @@ def home(request):
     string_list = []
     for history in history_list:
         string_list.append(str(history.num1) + history.operate + str(history.num2) + " " +"is"+" "+":"+str(history.result))
+    if request.POST.get('continue'):
+        return render(request,"calculator/home.html",{"last_result":Calculate.objects.last(),"check":1,"history":string_list})
     if request.POST.get("find value"):
         num = request.POST['x']
         num2 = request.POST['y']
