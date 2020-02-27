@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<title>Calculator</title>
 <head>
     <form method="POST">
         <input name="x" id="x" placeholder="Enter a subject" />
@@ -15,6 +16,16 @@
        {% for key,value in result_list.items %}
         <p>the result {{ x }} {{ key }} {{ y }} is :{{ value }}</p></td>
     {% endfor %}
+
+    <h1>History</h1>
+    {% for history in history %}
+        <p>the result {{ history }}</p></td>
+    {% endfor %}
+    <form method="POST">
+        <input name="clear_history" type="submit" value="Clear History">
+        {% csrf_token %}
+    </form>
+
 </head>
 <body>
 
