@@ -12,7 +12,7 @@ class Calculatortest(unittest.TestCase):
         self.browser.quit()
 
     def test_can_start_a_list_and_retrieve_it_later(self):
-        self.browser.get('http://127.0.0.1:8000/')
+        self.browser.get('http://127.0.0.1:8001/')
         #เขาสังเกตเห็นข้อความบนเว็บว่ามีคำว่า Calculator
         #เขาได้ลองใช้ app นี้โดยลองใส่ค่าลงไปแล้วกดปุ่ม  find value
         # เขาได้ใสเลข 3 และ เลข 5
@@ -20,24 +20,31 @@ class Calculatortest(unittest.TestCase):
         clear_history.click()
         num1=self.browser.find_element_by_name('x')
         num1.send_keys(3)
+        time.sleep(0.5)
         num2 = self.browser.find_element_by_name('y')
         num2.send_keys(5)
+        time.sleep(0.5)
 
         #เขาได้เลือกเครื่องหมาย +
         select_operate_plus = self.browser.find_element_by_xpath("//input[@value='+']")
         select_operate_plus.click()
+        time.sleep(0.5)
         #เขากดปุม   find value
         find_value_button = self.browser.find_element_by_name('find value')
         find_value_button.click()
+        time.sleep(0.5)
         #เขาได้เห็นคำตอบที่แสดงออกมา
         result = self.browser.find_element_by_tag_name('body').text
         self.assertIn("8",result)
+        time.sleep(0.5)
         #เขาลองใส่ผลลัพธ์ลองดูอีกรอบ
         #เขาได้ใสเลข 20 และ เลข 30
         num1 = self.browser.find_element_by_name('x')
         num1.send_keys(30)
+        time.sleep(0.5)
         num2 = self.browser.find_element_by_name('y')
         num2.send_keys(20)
+        time.sleep(0.5)
         # เขาได้เลือกเครื่องหมาย + - * / และกดปุ่ม find value อีกรอบ
         select_operate_plus = self.browser.find_element_by_xpath("//input[@value='+']")
         select_operate_plus.click()
